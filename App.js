@@ -1,4 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { createAppContainer } from 'react-navigation';
@@ -11,7 +10,7 @@ import Music from './screens/Music';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Stress Buster App</Text>
+      <AppContainer/>
     </View>
   );
 }
@@ -24,35 +23,10 @@ const styles = StyleSheet.create({
 });
 
 const TabNavigator = createBottomTabNavigator({
-  Focus: Focus,
-  Games: Games,
-  Music:Music
- }
-// {
-//   defaultNavigationOptions: ({navigation})=>({
-//     tabBarIcon: ()=>{
-//       const routeName = navigation.state.routeName;
-//       console.log(routeName)
-//       if(routeName === "WriteStory"){
-//         return(
-//         //   <Image
-//         //   source={require("./assets/write.png")}
-//         //   style={{width:30, height:30}}
-//         // />
-//         )
-        
-//       }
-//       else if(routeName === "ReadStory"){
-//         return(
-//           <Image
-//           source={require("./assets/read.png")}
-//           style={{width:30, height:30}}
-//         />)
-        
-//       }
-//     }
-//   })
-// }
-  )
+  Focus: {screen:Focus},
+  Games: {screen:Games},
+  Music:{screen:Music}
+ })
+ 
 
   const AppContainer = createAppContainer(TabNavigator);
